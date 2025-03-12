@@ -12,7 +12,7 @@ review_events_store = Review_Events_Store()
 
 app.register_blueprint(create_api_blueprint(vector_store, review_events_store))
 
-@app.before_first_request
+@app.before_request
 def initialize_app():
     vector_store.initialize()
     review_events_store.initialize()
